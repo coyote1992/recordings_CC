@@ -280,9 +280,9 @@ def verify(path, expected, partial=False):
 
 
 # --------------------------------------------------------------------------- one target
-def record_one(ctx, url, out, limit_seconds=None):
+def record_one(ctx, url, out, limit_seconds=None, attempt=1):
     WORK_DIR.mkdir(parents=True, exist_ok=True)
-    raw = WORK_DIR / (out.stem + ".raw.mkv")
+    raw = WORK_DIR / f"{out.stem}.attempt{attempt}.raw.mkv"  # never overwrite an earlier capture
     pg = ctx.new_page()
     cap = None
     try:
@@ -300,11 +300,16 @@ def record_one(ctx, url, out, limit_seconds=None):
         log(f"playing, video length {duration:.1f}s")
         deadline = started + duration * 1.5 + 120
         end_at = started + limit_seconds if limit_seconds else None
-        last_t, stall_since = -1, time.time()
+        last_t, stall_since, max_t = -1, time.time(), 0.0
         while True:
             s = video_state(pg)
+            if s is None and max_t >= duration - 5:
+                break  # player torn down right after the end
             if s:
-                if s["ended"] or s["t"] >= s["d"] - 0.3:
+                max_t = max(max_t, s["t"])
+                # After the last frame the player rewinds to 0, so "played to the end,
+                # then back near 0" counts as ended too.
+                if s["ended"] or s["t"] >= s["d"] - 0.3 or (max_t >= s["d"] - 5 and s["t"] < 2):
                     break
                 if s["t"] > last_t + 0.2:
                     last_t, stall_since = s["t"], time.time()
@@ -386,7 +391,7 @@ def main():
                 status, err = "failure", ""
                 for attempt in (1, 2):  # retry failures once
                     try:
-                        dur, mb, vol = record_one(ctx, url, out, args.limit_seconds)
+                        dur, mb, vol = record_one(ctx, url, out, args.limit_seconds, attempt)
                         log(f"OK {name}: {dur:.1f}s, {mb:.1f} MB, mean vol {vol} dB")
                         status, err = "success", ""
                         break
