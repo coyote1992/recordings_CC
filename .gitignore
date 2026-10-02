@@ -1,4 +1,6 @@
-recordings/*.raw.mkv
+logs/
+*.tmp
+*.tmp.mp4
 __pycache__/
 *.state.json
-logs/
+recordings/**/*.raw.mkv

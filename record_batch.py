@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Batch-record Crafting Cases (Thinkific/Wistia) lesson videos to MP4.
+"""Batch-record Crafting Cases (Thinkific/Wistia) lesson videos to MP4 (split into <100 MB parts).
 
 For each URL in targets.csv:
   1. open it in headed Chrome(Chromium) (kiosk, 1920x1080) on a virtual X display via Playwright
@@ -25,6 +25,7 @@ import csv
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -45,7 +46,8 @@ PROXY = os.environ.get("HTTPS_PROXY") or os.environ.get("https_proxy")
 DISPLAY = os.environ.get("DISPLAY", ":99")
 PULSE_SERVER = os.environ.get("PULSE_SERVER", "unix:/tmp/pulse.sock")
 AUDIO_SRC = os.environ.get("PULSE_SINK", "rec") + ".monitor"  # per-worker null sink
-MAX_MB = float(os.environ.get("MAX_MB", "95"))  # GitHub rejects files > 100 MB
+MAX_PART_MB = float(os.environ.get("MAX_PART_MB", "85"))  # GitHub rejects files > 100 MB: split into parts below this
+CRF = os.environ.get("CRF", "28")
 
 # Third-party trackers: not needed for playback and they flake through the proxy.
 BLOCK = re.compile(
@@ -231,25 +233,35 @@ def probe(path):
     return json.loads(r.stdout) if r.returncode == 0 and r.stdout else None
 
 
-def final_encode(raw, out, duration):
-    """CRF encode; fall back to two-pass ABR if it busts the size budget."""
-    out_tmp = out.with_suffix(".tmp.mp4")
-    base = ["ffmpeg", "-y", "-loglevel", "error", "-i", str(raw), "-c:v", "libx264",
-            "-preset", "medium", "-pix_fmt", "yuv420p", "-r", "30"]
-    audio = ["-c:a", "aac", "-b:a", "64k", "-ac", "2", "-movflags", "+faststart"]
-    r = run(base + ["-crf", "28"] + audio + [str(out_tmp)])
+def final_encode(raw, out_tmp):
+    """Normal-quality CRF encode of the raw capture (low priority so live captures keep up)."""
+    cmd = ["nice", "-n", "10", "ffmpeg", "-y", "-loglevel", "error", "-i", str(raw),
+           "-c:v", "libx264", "-preset", "medium", "-crf", CRF, "-pix_fmt", "yuv420p", "-r", "30",
+           "-c:a", "aac", "-b:a", "64k", "-ac", "2", "-movflags", "+faststart", str(out_tmp)]
+    r = run(cmd)
     if r.returncode != 0:
         raise RuntimeError("encode failed: " + r.stderr[-300:])
-    if out_tmp.stat().st_size / 1e6 > MAX_MB:
-        vbit = int((MAX_MB * 8e6 * 0.97) / duration - 64_000)
-        log(f"CRF encode {out_tmp.stat().st_size/1e6:.0f} MB > {MAX_MB} MB; two-pass @ {vbit//1000} kbps")
-        passlog = str(WORK_DIR / "x264pass")
-        r1 = run(base + ["-b:v", str(vbit), "-pass", "1", "-passlogfile", passlog,
-                         "-an", "-f", "mp4", "/dev/null"])
-        r2 = run(base + ["-b:v", str(vbit), "-pass", "2", "-passlogfile", passlog] + audio + [str(out_tmp)])
-        if r1.returncode or r2.returncode:
-            raise RuntimeError("two-pass encode failed: " + (r1.stderr + r2.stderr)[-300:])
-    out_tmp.replace(out)
+
+
+def split_parts(src, dest_dir, stem, duration):
+    """Cut src into as few parts as needed so every part is < MAX_PART_MB (no re-encode)."""
+    size_mb = src.stat().st_size / 1e6
+    if size_mb <= MAX_PART_MB:
+        return [src]
+    first = int(size_mb / MAX_PART_MB) + 1
+    for n in range(first, first + 6):
+        for old in dest_dir.glob(f"{stem}_part*.mp4"):
+            old.unlink()
+        r = run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-c", "copy", "-map", "0",
+                 "-f", "segment", "-segment_time", f"{duration / n + 2:.1f}",
+                 "-reset_timestamps", "1", "-segment_start_number", "1",
+                 "-segment_format_options", "movflags=+faststart",
+                 str(dest_dir / f"{stem}_part%d.mp4")])
+        parts = sorted(dest_dir.glob(f"{stem}_part*.mp4"),
+                       key=lambda p: int(re.search(r"_part(\d+)", p.name).group(1)))
+        if r.returncode == 0 and parts and all(p.stat().st_size / 1e6 < 97 for p in parts):
+            return parts
+    raise RuntimeError("could not split into parts under the size limit")
 
 
 def verify(path, expected, partial=False):
@@ -281,9 +293,11 @@ def verify(path, expected, partial=False):
 
 
 # --------------------------------------------------------------------------- one target
-def record_one(ctx, url, out, limit_seconds=None, attempt=1):
+def record_one(ctx, url, rel_name, limit_seconds=None, attempt=1):
+    """Record one lesson; returns (duration_s, total_mb, mean_vol_db, [final files relative to recordings/])."""
     WORK_DIR.mkdir(parents=True, exist_ok=True)
-    raw = WORK_DIR / f"{out.stem}.attempt{attempt}.raw.mkv"  # never overwrite an earlier capture
+    stem = Path(rel_name).stem
+    raw = WORK_DIR / f"{stem}.attempt{attempt}.raw.mkv"  # never overwrite an earlier capture
     pg = ctx.new_page()
     cap = None
     try:
@@ -330,82 +344,126 @@ def record_one(ctx, url, out, limit_seconds=None, attempt=1):
             stop_capture(cap)
         pg.close()
     log("capture done, encoding")
-    final_encode(raw, out, duration if not limit_seconds else max(limit_seconds, 10))
-    res = verify(out, duration, partial=bool(limit_seconds))
+    full = WORK_DIR / f"{stem}.full.mp4"
+    final_encode(raw, full)
+    dur, mb, vol = verify(full, duration, partial=bool(limit_seconds))
+    # split in the work dir, verify every part, then atomically move into the repo folder
+    stage = WORK_DIR / f"{stem}.stage"
+    stage.mkdir(exist_ok=True)
+    parts = split_parts(full, stage, stem, dur)
+    if parts == [full]:
+        staged = [stage / f"{stem}.mp4"]
+        shutil.move(str(full), str(staged[0]))
+    else:
+        staged = parts
+        full.unlink()
+        for p in staged:
+            verify(p, 0, partial=True)
+    dest = OUT_DIR / rel_name
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    finals = []
+    for p in staged:
+        tgt = dest.parent / p.name
+        shutil.move(str(p), str(tgt) + ".tmp")
+        os.replace(str(tgt) + ".tmp", tgt)  # atomic: the uploader never sees a half-written file
+        finals.append(str(tgt.relative_to(OUT_DIR)))
+    shutil.rmtree(stage, ignore_errors=True)
     raw.unlink(missing_ok=True)
-    return res
+    return dur, mb, vol, finals
+
+
+def already_done(rel_name):
+    dest = OUT_DIR / rel_name
+    stem = dest.stem
+    return dest.exists() or any(dest.parent.glob(f"{stem}_part1.mp4"))
 
 
 # --------------------------------------------------------------------------- discover
+def slug(s, n=60):
+    return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")[:n]
+
+
 def discover(ctx, dest):
-    pg = ctx.new_page()
-    pg.goto(COURSE, wait_until="domcontentloaded", timeout=90000)
-    pg.wait_for_selector("a[href*='/lessons/']", timeout=60000)
-    pg.wait_for_timeout(2000)
-    rows = pg.evaluate("""() => {
-      const out = []; let sec = '', n = 0;
-      const root = document.body;
-      const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
-      document.querySelectorAll('a[href*="/lessons/"]').forEach(a => {
-        const s = a.closest('[class*="section"], [class*="chapter"], section, li');
-        out.push({href: a.href, title: a.innerText.split('\\n')[0].trim()});
-      });
-      return out;
-    }""")
-    pg.close()
-    seen, n = set(), 0
+    """Build the target list from the course-player JSON API: one folder per module."""
+    d = ctx.request.get(f"{BASE}/api/course_player/v2/courses/structure-from-scratch",
+                        timeout=60000).json()
+    contents = {c["id"]: c for c in d["contents"]}
+    rows = []
+    for mi, ch in enumerate(sorted(d["chapters"], key=lambda c: c["position"]), 1):
+        folder = f"{mi:02d}_{slug(ch['name'])}"
+        for li, cid in enumerate(ch["content_ids"], 1):
+            c = contents[cid]
+            if c.get("display_name") != "Video":
+                continue
+            secs = (c.get("meta_data") or {}).get("duration_in_seconds") or 0
+            rows.append([f"{BASE}/courses/take/structure-from-scratch/lessons/{c['slug']}",
+                         f"{folder}/{li:02d}_{slug(c['name'])}.mp4", secs, ch["name"], c["name"]])
     with open(dest, "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["url", "filename"])
-        for r in rows:
-            if r["href"] in seen:
-                continue
-            seen.add(r["href"])
-            n += 1
-            slug = re.sub(r"[^a-z0-9]+", "-", r["title"].lower()).strip("-")[:60]
-            w.writerow([r["href"], f"{n:03d}_{slug}.mp4"])
-    log(f"wrote {n} lessons to {dest}")
+        w.writerow(["url", "filename", "seconds", "module", "title"])
+        w.writerows(rows)
+    log(f"wrote {len(rows)} video lessons to {dest}")
 
 
 # --------------------------------------------------------------------------- main
+def claim(name, claims_dir):
+    """Atomically claim a target so parallel workers never record the same lesson."""
+    if not claims_dir:
+        return True
+    try:
+        os.makedirs(Path(claims_dir) / slug(name, 120))
+        return True
+    except FileExistsError:
+        return False
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--targets", default=str(ROOT / "targets.csv"))
     ap.add_argument("--results", default=str(ROOT / "results.csv"))
     ap.add_argument("--limit-seconds", type=float, default=None)
     ap.add_argument("--discover", action="store_true")
+    ap.add_argument("--claims", default=None, help="shared dir: workers claim targets from one queue")
     args = ap.parse_args()
     OUT_DIR.mkdir(exist_ok=True)
 
-    with sync_playwright() as p:
-        browser, ctx = launch(p)
-        try:
-            login(ctx)
-            if args.discover:
+    if args.discover:
+        with sync_playwright() as p:
+            browser, ctx = launch(p)
+            try:
+                login(ctx)
                 return discover(ctx, ROOT / "targets_all.csv")
-            with open(args.targets, newline="") as f:
-                targets = list(csv.DictReader(f))
-            results = []
-            for t in targets:
-                url, name = t["url"], t["filename"]
-                out = OUT_DIR / name
-                status, err = "failure", ""
-                for attempt in (1, 2):  # retry failures once
+            finally:
+                browser.close()
+
+    with open(args.targets, newline="") as f:
+        targets = list(csv.DictReader(f))
+    results = []
+    for t in targets:
+        url, name = t["url"], t["filename"]
+        if already_done(name) or not claim(name, args.claims):
+            continue
+        status, err, files = "failure", "", [name]
+        for attempt in (1, 2):  # retry failures once (fresh browser each time)
+            try:
+                with sync_playwright() as p:
+                    browser, ctx = launch(p)
                     try:
-                        dur, mb, vol = record_one(ctx, url, out, args.limit_seconds, attempt)
-                        log(f"OK {name}: {dur:.1f}s, {mb:.1f} MB, mean vol {vol} dB")
-                        status, err = "success", ""
-                        break
-                    except Exception as e:  # noqa: BLE001
-                        err = f"attempt {attempt}: {e}"
-                        log("FAILED", name, err)
-                results.append({"url": url, "filename": name, "status": status, "error": err})
-                with open(args.results, "w", newline="") as f:
-                    w = csv.DictWriter(f, fieldnames=["url", "filename", "status", "error"])
-                    w.writeheader()
-                    w.writerows(results)
-        finally:
-            browser.close()
+                        login(ctx)
+                        dur, mb, vol, files = record_one(ctx, url, name, args.limit_seconds, attempt)
+                    finally:
+                        browser.close()
+                log(f"OK {name}: {dur:.1f}s, {mb:.1f} MB, {len(files)} file(s), mean vol {vol} dB")
+                status, err = "success", ""
+                break
+            except Exception as e:  # noqa: BLE001
+                err = f"attempt {attempt}: {e}"
+                log("FAILED", name, err)
+        results.append({"url": url, "filename": ";".join(files), "status": status, "error": err})
+        with open(args.results, "w", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=["url", "filename", "status", "error"])
+            w.writeheader()
+            w.writerows(results)
 
 
 if __name__ == "__main__":
