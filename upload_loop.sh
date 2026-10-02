@@ -17,6 +17,8 @@ PY
   git add recordings results.csv
   git diff --cached --quiet && return 0
   n=$(git diff --cached --name-only | grep -c '\.mp4$' || true)
+  # only commit when there are new videos (or on the final pass), not for every results.csv tweak
+  if [ "$n" = 0 ] && [ "${FINAL:-0}" != 1 ]; then git reset -q; return 0; fi
   git commit -q -m "Add $n recorded video file(s)
 
 Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
@@ -26,7 +28,7 @@ Claude-Session: https://claude.ai/code/session_01RpMDzLcwbCYcWGvJPzyb3p"
 }
 while true; do
   done_flag=0; [ -f logs/ALL_DONE ] && done_flag=1
-  push_once
+  FINAL=$done_flag push_once
   [ $done_flag = 1 ] && break
   sleep 60
 done

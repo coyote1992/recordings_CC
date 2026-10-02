@@ -48,6 +48,7 @@ PULSE_SERVER = os.environ.get("PULSE_SERVER", "unix:/tmp/pulse.sock")
 AUDIO_SRC = os.environ.get("PULSE_SINK", "rec") + ".monitor"  # per-worker null sink
 MAX_PART_MB = float(os.environ.get("MAX_PART_MB", "85"))  # GitHub rejects files > 100 MB: split into parts below this
 CRF = os.environ.get("CRF", "28")
+CAPTURE_FPS = os.environ.get("CAPTURE_FPS", "20")  # lower = less CPU, so 4 workers fit on 4 cores
 
 # Third-party trackers: not needed for playback and they flake through the proxy.
 BLOCK = re.compile(
@@ -205,7 +206,7 @@ def click_play(pg):
 def start_capture(raw, off=(0, 0)):
     cmd = [
         "ffmpeg", "-y", "-loglevel", "error",
-        "-f", "x11grab", "-draw_mouse", "0", "-framerate", "30",
+        "-f", "x11grab", "-draw_mouse", "0", "-framerate", CAPTURE_FPS,
         "-video_size", f"{W}x{H}", "-i", f"{DISPLAY}.0+{off[0]},{off[1]}",
         "-f", "pulse", "-i", AUDIO_SRC,
         "-c:v", "libx264", "-preset", "ultrafast", "-crf", "20", "-pix_fmt", "yuv420p",
@@ -236,7 +237,7 @@ def probe(path):
 def final_encode(raw, out_tmp):
     """Normal-quality CRF encode of the raw capture (low priority so live captures keep up)."""
     cmd = ["nice", "-n", "10", "ffmpeg", "-y", "-loglevel", "error", "-i", str(raw),
-           "-c:v", "libx264", "-preset", "medium", "-crf", CRF, "-pix_fmt", "yuv420p", "-r", "30",
+           "-c:v", "libx264", "-preset", "medium", "-crf", CRF, "-pix_fmt", "yuv420p",
            "-c:a", "aac", "-b:a", "64k", "-ac", "2", "-movflags", "+faststart", str(out_tmp)]
     r = run(cmd)
     if r.returncode != 0:
@@ -438,8 +439,11 @@ def main():
 
     with open(args.targets, newline="") as f:
         targets = list(csv.DictReader(f))
-    results = []
+    results, consecutive_failures = [], 0
     for t in targets:
+        if consecutive_failures >= 3:
+            log("3 failures in a row: stopping this worker (environment problem?)")
+            break
         url, name = t["url"], t["filename"]
         if already_done(name) or not claim(name, args.claims):
             continue
@@ -457,8 +461,9 @@ def main():
                 status, err = "success", ""
                 break
             except Exception as e:  # noqa: BLE001
-                err = f"attempt {attempt}: {e}"
+                err = f"attempt {attempt}: " + (str(e).strip().splitlines() or ["error"])[0][:200]
                 log("FAILED", name, err)
+        consecutive_failures = 0 if status == "success" else consecutive_failures + 1
         results.append({"url": url, "filename": ";".join(files), "status": status, "error": err})
         with open(args.results, "w", newline="") as f:
             w = csv.DictWriter(f, fieldnames=["url", "filename", "status", "error"])
