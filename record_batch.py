@@ -48,6 +48,7 @@ PULSE_SERVER = os.environ.get("PULSE_SERVER", "unix:/tmp/pulse.sock")
 AUDIO_SRC = os.environ.get("PULSE_SINK", "rec") + ".monitor"  # per-worker null sink
 MAX_PART_MB = float(os.environ.get("MAX_PART_MB", "85"))  # GitHub rejects files > 100 MB: split into parts below this
 CRF = os.environ.get("CRF", "28")
+ENC_PRESET = os.environ.get("ENC_PRESET", "veryfast")  # medium was too slow while 4 captures hog the CPUs
 CAPTURE_FPS = os.environ.get("CAPTURE_FPS", "20")  # lower = less CPU, so 4 workers fit on 4 cores
 
 # Third-party trackers: not needed for playback and they flake through the proxy.
@@ -236,8 +237,8 @@ def probe(path):
 
 def final_encode(raw, out_tmp):
     """Normal-quality CRF encode of the raw capture (low priority so live captures keep up)."""
-    cmd = ["nice", "-n", "10", "ffmpeg", "-y", "-loglevel", "error", "-i", str(raw),
-           "-c:v", "libx264", "-preset", "medium", "-crf", CRF, "-pix_fmt", "yuv420p",
+    cmd = ["nice", "-n", "5", "ffmpeg", "-y", "-loglevel", "error", "-i", str(raw),
+           "-c:v", "libx264", "-preset", ENC_PRESET, "-crf", CRF, "-pix_fmt", "yuv420p",
            "-c:a", "aac", "-b:a", "64k", "-ac", "2", "-movflags", "+faststart", str(out_tmp)]
     r = run(cmd)
     if r.returncode != 0:
