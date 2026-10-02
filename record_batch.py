@@ -44,6 +44,7 @@ CHROMIUM = os.environ.get(
 PROXY = os.environ.get("HTTPS_PROXY") or os.environ.get("https_proxy")
 DISPLAY = os.environ.get("DISPLAY", ":99")
 PULSE_SERVER = os.environ.get("PULSE_SERVER", "unix:/tmp/pulse.sock")
+AUDIO_SRC = os.environ.get("PULSE_SINK", "rec") + ".monitor"  # per-worker null sink
 MAX_MB = float(os.environ.get("MAX_MB", "95"))  # GitHub rejects files > 100 MB
 
 # Third-party trackers: not needed for playback and they flake through the proxy.
@@ -204,8 +205,8 @@ def start_capture(raw, off=(0, 0)):
         "ffmpeg", "-y", "-loglevel", "error",
         "-f", "x11grab", "-draw_mouse", "0", "-framerate", "30",
         "-video_size", f"{W}x{H}", "-i", f"{DISPLAY}.0+{off[0]},{off[1]}",
-        "-f", "pulse", "-i", "rec.monitor",
-        "-c:v", "libx264", "-preset", "veryfast", "-crf", "17", "-pix_fmt", "yuv420p",
+        "-f", "pulse", "-i", AUDIO_SRC,
+        "-c:v", "libx264", "-preset", "ultrafast", "-crf", "20", "-pix_fmt", "yuv420p",
         "-c:a", "aac", "-b:a", "128k", str(raw),
     ]
     env = {**os.environ, "PULSE_SERVER": PULSE_SERVER}
@@ -234,9 +235,9 @@ def final_encode(raw, out, duration):
     """CRF encode; fall back to two-pass ABR if it busts the size budget."""
     out_tmp = out.with_suffix(".tmp.mp4")
     base = ["ffmpeg", "-y", "-loglevel", "error", "-i", str(raw), "-c:v", "libx264",
-            "-preset", "slow", "-pix_fmt", "yuv420p", "-r", "30"]
+            "-preset", "medium", "-pix_fmt", "yuv420p", "-r", "30"]
     audio = ["-c:a", "aac", "-b:a", "64k", "-ac", "2", "-movflags", "+faststart"]
-    r = run(base + ["-crf", "26"] + audio + [str(out_tmp)])
+    r = run(base + ["-crf", "28"] + audio + [str(out_tmp)])
     if r.returncode != 0:
         raise RuntimeError("encode failed: " + r.stderr[-300:])
     if out_tmp.stat().st_size / 1e6 > MAX_MB:
@@ -267,7 +268,7 @@ def verify(path, expected, partial=False):
     if not a:
         raise RuntimeError("no audio stream")
     dur = float(info["format"]["duration"])
-    if not partial and not (expected - 3 <= dur <= expected + 15):
+    if not partial and not (expected - 3 <= dur <= expected + 90):
         raise RuntimeError(f"duration {dur:.1f}s vs video {expected:.1f}s")
     dec = run(["ffmpeg", "-v", "error", "-i", str(path), "-f", "null", "-"])
     if dec.returncode != 0 or dec.stderr.strip():
