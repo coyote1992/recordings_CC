@@ -1497,3 +1497,495 @@ Call log:
   - [pid=5742] finished temporary directories cleanup
   - [pid=5742] <gracefully close end>
 "
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69761585-drill-rotisserie-chicken-pricing,02_module-2-analytical-decisions/10_drill-rotisserie-chicken-pricing.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-Rf09QA --remote-debugging-pipe --no-startup-window
+  - <launched> pid=5852
+  - [pid=5852][err] [1002/123129.228330:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=5852][err] [5852:5871:1002/123129.359095:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=5852][err] [5852:5871:1002/123129.359278:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are ""tcp"" and on UNIX ""unix"")
+  - [pid=5852][err] [5852:5852:1002/123129.360696:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=5852][err] [5852:5852:1002/123129.360705:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=5852] <gracefully close start>
+  - [pid=5852] <kill>
+  - [pid=5852] <will force kill>
+  - [pid=5852] <process did exit: exitCode=1, signal=null>
+  - [pid=5852] starting temporary directories cleanup
+  - [pid=5852] finished temporary directories cleanup
+  - [pid=5852] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69867578-bs-drill-movie-theater-industry-consolidation,07_module-7-structured-throughout-the-case/17_bs-drill-movie-theater-industry-consolidation.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-sme1Mx --remote-debugging-pipe --no-startup-window
+  - <launched> pid=5929
+  - [pid=5929][err] [1002/123132.169539:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=5929][err] [5929:5945:1002/123132.300168:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=5929][err] [5929:5945:1002/123132.300217:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are ""tcp"" and on UNIX ""unix"")
+  - [pid=5929][err] [5929:5929:1002/123132.301181:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=5929][err] [5929:5929:1002/123132.301190:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=5929] <gracefully close start>
+  - [pid=5929] <kill>
+  - [pid=5929] <will force kill>
+  - [pid=5929] <process did exit: exitCode=1, signal=null>
+  - [pid=5929] starting temporary directories cleanup
+  - [pid=5929] finished temporary directories cleanup
+  - [pid=5929] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69843076-drill-big-pharma-acquisition,05_module-5-objective-driven-structures/07_drill-big-pharma-acquisition.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-bEYAKe --remote-debugging-pipe --no-startup-window
+  - <launched> pid=6002
+  - [pid=6002][err] [1002/123135.595300:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=6002][err] [6002:6018:1002/123135.663454:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=6002][err] [6002:6002:1002/123135.665906:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=6002][err] [6002:6002:1002/123135.665930:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=6002][err] [6002:6018:1002/123135.668615:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are ""tcp"" and on UNIX ""unix"")
+  - [pid=6002] <gracefully close start>
+  - [pid=6002] <kill>
+  - [pid=6002] <will force kill>
+  - [pid=6002] <process did exit: exitCode=1, signal=null>
+  - [pid=6002] starting temporary directories cleanup
+  - [pid=6002] finished temporary directories cleanup
+  - [pid=6002] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69867541-bs-drill-retail-bank-synergies,07_module-7-structured-throughout-the-case/15_bs-drill-retail-bank-synergies.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-1C1igf --remote-debugging-pipe --no-startup-window
+  - <launched> pid=6077
+  - [pid=6077][err] [1002/123138.702009:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=6077][err] [6077:6077:1002/123138.820920:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=6077][err] [6077:6077:1002/123138.821334:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=6077][err] [6077:6093:1002/123138.822893:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=6077][err] [6077:6093:1002/123138.822933:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are ""tcp"" and on UNIX ""unix"")
+  - [pid=6077] <gracefully close start>
+  - [pid=6077] <kill>
+  - [pid=6077] <will force kill>
+  - [pid=6077] <process did exit: exitCode=1, signal=null>
+  - [pid=6077] starting temporary directories cleanup
+  - [pid=6077] finished temporary directories cleanup
+  - [pid=6077] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/70855598-drill-meeting-ai-pricing,06_module-6-open-ended-strategy/09_drill-meeting-ai-pricing.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-veqb4k --remote-debugging-pipe --no-startup-window
+  - <launched> pid=6151
+  - [pid=6151][err] [1002/123141.336675:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=6151][err] [6151:6151:1002/123141.437847:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=6151][err] [6151:6151:1002/123141.437870:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=6151][err] [6151:6167:1002/123141.439981:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=6151][err] [6151:6167:1002/123141.440283:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are ""tcp"" and on UNIX ""unix"")
+  - [pid=6151] <gracefully close start>
+  - [pid=6151] <kill>
+  - [pid=6151] <will force kill>
+  - [pid=6151] <process did exit: exitCode=1, signal=null>
+  - [pid=6151] starting temporary directories cleanup
+  - [pid=6151] finished temporary directories cleanup
+  - [pid=6151] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69757440-the-3-structuring-building-blocks,01_module-1-the-structure-from-scratch-system/05_the-3-structuring-building-blocks.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-yJup8R --remote-debugging-pipe --no-startup-window
+  - <launched> pid=6227
+  - [pid=6227][err] [1002/123143.718490:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=6227][err] [6227:6243:1002/123143.834205:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=6227][err] [6227:6243:1002/123143.834245:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are ""tcp"" and on UNIX ""unix"")
+  - [pid=6227][err] [6227:6227:1002/123143.835253:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=6227][err] [6227:6227:1002/123143.835264:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=6227] <gracefully close start>
+  - [pid=6227] <kill>
+  - [pid=6227] <will force kill>
+  - [pid=6227] <process did exit: exitCode=1, signal=null>
+  - [pid=6227] starting temporary directories cleanup
+  - [pid=6227] finished temporary directories cleanup
+  - [pid=6227] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69761574-drill-led-light-bulbs-pricing,02_module-2-analytical-decisions/05_drill-led-light-bulbs-pricing.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-cSKkW2 --remote-debugging-pipe --no-startup-window
+  - <launched> pid=6308
+  - [pid=6308][err] [1002/123146.182856:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=6308][err] [6308:6308:1002/123146.243201:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=6308][err] [6308:6308:1002/123146.243220:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=6308][err] [6308:6324:1002/123146.245111:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=6308][err] [6308:6324:1002/123146.245144:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are ""tcp"" and on UNIX ""unix"")
+  - [pid=6308] <gracefully close start>
+  - [pid=6308] <kill>
+  - [pid=6308] <will force kill>
+  - [pid=6308] <process did exit: exitCode=1, signal=null>
+  - [pid=6308] starting temporary directories cleanup
+  - [pid=6308] finished temporary directories cleanup
+  - [pid=6308] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69867527-bs-drill-star-wars-revenue-streams,07_module-7-structured-throughout-the-case/13_bs-drill-star-wars-revenue-streams.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-N9J2tS --remote-debugging-pipe --no-startup-window
+  - <launched> pid=6383
+  - [pid=6383][err] [1002/123149.064628:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=6383][err] [6383:6383:1002/123149.147321:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=6383][err] [6383:6383:1002/123149.147338:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=6383] <gracefully close start>
+  - [pid=6383] <kill>
+  - [pid=6383] <will force kill>
+  - [pid=6383] <process did exit: exitCode=1, signal=null>
+  - [pid=6383] starting temporary directories cleanup
+  - [pid=6383] finished temporary directories cleanup
+  - [pid=6383] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69867491-bs-drill-insurance-industry-costs,07_module-7-structured-throughout-the-case/08_bs-drill-insurance-industry-costs.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-465u9b --remote-debugging-pipe --no-startup-window
+  - <launched> pid=6457
+  - [pid=6457][err] [1002/123152.136465:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=6457][err] [6457:6457:1002/123152.275603:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=6457][err] [6457:6457:1002/123152.275621:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=6457] <gracefully close start>
+  - [pid=6457] <kill>
+  - [pid=6457] <will force kill>
+  - [pid=6457] <process did exit: exitCode=1, signal=null>
+  - [pid=6457] starting temporary directories cleanup
+  - [pid=6457] finished temporary directories cleanup
+  - [pid=6457] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69867588-bs-drill-measurement-system-switching-costs,07_module-7-structured-throughout-the-case/19_bs-drill-measurement-system-switching-costs.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-n2ykMv --remote-debugging-pipe --no-startup-window
+  - <launched> pid=6539
+  - [pid=6539][err] [1002/123154.601958:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=6539][err] [6539:6555:1002/123154.704176:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=6539][err] [6539:6555:1002/123154.704616:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are ""tcp"" and on UNIX ""unix"")
+  - [pid=6539][err] [6539:6539:1002/123154.708246:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=6539][err] [6539:6539:1002/123154.708266:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=6539] <gracefully close start>
+  - [pid=6539] <kill>
+  - [pid=6539] <will force kill>
+  - [pid=6539] <process did exit: exitCode=1, signal=null>
+  - [pid=6539] starting temporary directories cleanup
+  - [pid=6539] finished temporary directories cleanup
+  - [pid=6539] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69867496-bs-drill-in-vitro-diagnosis-costs,07_module-7-structured-throughout-the-case/09_bs-drill-in-vitro-diagnosis-costs.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-SDqYch --remote-debugging-pipe --no-startup-window
+  - <launched> pid=6613
+  - [pid=6613][err] [1002/123157.736677:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=6613][err] [6613:6613:1002/123157.881144:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=6613][err] [6613:6613:1002/123157.881204:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=6613][err] [6613:6629:1002/123157.883165:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=6613][err] [6613:6629:1002/123157.883509:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are ""tcp"" and on UNIX ""unix"")
+  - [pid=6613] <gracefully close start>
+  - [pid=6613] <kill>
+  - [pid=6613] <will force kill>
+  - [pid=6613] <process did exit: exitCode=1, signal=null>
+  - [pid=6613] starting temporary directories cleanup
+  - [pid=6613] finished temporary directories cleanup
+  - [pid=6613] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69867548-bs-drill-cosmetic-door-to-door-sales-risks,07_module-7-structured-throughout-the-case/16_bs-drill-cosmetic-door-to-door-sales-risks.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-vZIW3L --remote-debugging-pipe --no-startup-window
+  - <launched> pid=6687
+  - [pid=6687][err] [1002/123201.345962:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=6687][err] [6687:6687:1002/123201.513074:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=6687][err] [6687:6687:1002/123201.513096:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=6687][err] [6687:6704:1002/123201.514636:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=6687][err] [6687:6704:1002/123201.514837:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are ""tcp"" and on UNIX ""unix"")
+  - [pid=6687] <gracefully close start>
+  - [pid=6687] <kill>
+  - [pid=6687] <will force kill>
+  - [pid=6687] <process did exit: exitCode=1, signal=null>
+  - [pid=6687] starting temporary directories cleanup
+  - [pid=6687] finished temporary directories cleanup
+  - [pid=6687] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69867485-bs-drill-rail-cargo-operations-costs,07_module-7-structured-throughout-the-case/07_bs-drill-rail-cargo-operations-costs.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-KU6cTj --remote-debugging-pipe --no-startup-window
+  - <launched> pid=6764
+  - [pid=6764][err] [1002/123204.934543:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=6764][err] [6764:6764:1002/123205.022796:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=6764][err] [6764:6764:1002/123205.022822:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=6764][err] [6764:6780:1002/123205.024932:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=6764][err] [6764:6780:1002/123205.024965:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are ""tcp"" and on UNIX ""unix"")
+  - [pid=6764] <gracefully close start>
+  - [pid=6764] <kill>
+  - [pid=6764] <will force kill>
+  - [pid=6764] <process did exit: exitCode=1, signal=null>
+  - [pid=6764] starting temporary directories cleanup
+  - [pid=6764] finished temporary directories cleanup
+  - [pid=6764] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69867503-bs-drill-auto-company-revenue-streams,07_module-7-structured-throughout-the-case/10_bs-drill-auto-company-revenue-streams.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-KUscqa --remote-debugging-pipe --no-startup-window
+  - <launched> pid=6839
+  - [pid=6839][err] [1002/123208.476989:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=6839][err] [6839:6839:1002/123208.719762:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=6839][err] [6839:6839:1002/123208.719783:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=6839][err] [6839:6855:1002/123208.741629:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=6839][err] [6839:6855:1002/123208.741679:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are ""tcp"" and on UNIX ""unix"")
+  - [pid=6839] <gracefully close start>
+  - [pid=6839] <kill>
+  - [pid=6839] <will force kill>
+  - [pid=6839] <process did exit: exitCode=1, signal=null>
+  - [pid=6839] starting temporary directories cleanup
+  - [pid=6839] finished temporary directories cleanup
+  - [pid=6839] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69867509-bs-drill-supermarket-revenue-streams,07_module-7-structured-throughout-the-case/11_bs-drill-supermarket-revenue-streams.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-QTng16 --remote-debugging-pipe --no-startup-window
+  - <launched> pid=6914
+  - [pid=6914][err] [1002/123212.043076:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=6914][err] [6914:6930:1002/123212.139041:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=6914][err] [6914:6930:1002/123212.139076:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are ""tcp"" and on UNIX ""unix"")
+  - [pid=6914][err] [6914:6914:1002/123212.140874:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=6914][err] [6914:6914:1002/123212.140885:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=6914] <gracefully close start>
+  - [pid=6914] <kill>
+  - [pid=6914] <will force kill>
+  - [pid=6914] <process did exit: exitCode=1, signal=null>
+  - [pid=6914] starting temporary directories cleanup
+  - [pid=6914] finished temporary directories cleanup
+  - [pid=6914] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69843061-drill-supermarket-private-label,05_module-5-objective-driven-structures/04_drill-supermarket-private-label.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-LOjxFF --remote-debugging-pipe --no-startup-window
+  - <launched> pid=6989
+  - [pid=6989][err] [1002/123214.554656:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=6989][err] [6989:7005:1002/123214.617244:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=6989][err] [6989:7005:1002/123214.617451:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are ""tcp"" and on UNIX ""unix"")
+  - [pid=6989][err] [6989:6989:1002/123214.623094:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=6989][err] [6989:6989:1002/123214.623337:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=6989] <gracefully close start>
+  - [pid=6989] <kill>
+  - [pid=6989] <will force kill>
+  - [pid=6989] <process did exit: exitCode=1, signal=null>
+  - [pid=6989] starting temporary directories cleanup
+  - [pid=6989] finished temporary directories cleanup
+  - [pid=6989] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69869225-hypo-testing-drill-toothbrushes-willingness-to-pay,07_module-7-structured-throughout-the-case/25_hypo-testing-drill-toothbrushes-willingness-to-pay.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-Y7WY3e --remote-debugging-pipe --no-startup-window
+  - <launched> pid=7064
+  - [pid=7064][err] [1002/123217.844052:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=7064][err] [7064:7064:1002/123217.942253:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=7064][err] [7064:7064:1002/123217.942278:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=7064] <gracefully close start>
+  - [pid=7064] <kill>
+  - [pid=7064] <will force kill>
+  - [pid=7064] <process did exit: exitCode=1, signal=null>
+  - [pid=7064] starting temporary directories cleanup
+  - [pid=7064] finished temporary directories cleanup
+  - [pid=7064] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69869240-hypo-testing-drill-automotive-m-a-economies-of-scale,07_module-7-structured-throughout-the-case/26_hypo-testing-drill-automotive-m-a-economies-of-scale.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-FhBjDG --remote-debugging-pipe --no-startup-window
+  - <launched> pid=7139
+  - [pid=7139][err] [1002/123221.020255:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=7139][err] [7139:7139:1002/123221.195093:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=7139][err] [7139:7139:1002/123221.195119:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=7139] <gracefully close start>
+  - [pid=7139] <kill>
+  - [pid=7139] <will force kill>
+  - [pid=7139] <process did exit: exitCode=1, signal=null>
+  - [pid=7139] starting temporary directories cleanup
+  - [pid=7139] finished temporary directories cleanup
+  - [pid=7139] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69867457-bs-drill-airline-merger-synergies,07_module-7-structured-throughout-the-case/04_bs-drill-airline-merger-synergies.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-w3Z1sM --remote-debugging-pipe --no-startup-window
+  - <launched> pid=7213
+  - [pid=7213][err] [1002/123223.780529:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=7213][err] [7213:7213:1002/123223.901353:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=7213][err] [7213:7213:1002/123223.901790:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=7213][err] [7213:7229:1002/123223.918303:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=7213][err] [7213:7229:1002/123223.919420:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are ""tcp"" and on UNIX ""unix"")
+  - [pid=7213] <gracefully close start>
+  - [pid=7213] <kill>
+  - [pid=7213] <will force kill>
+  - [pid=7213] <process did exit: exitCode=1, signal=null>
+  - [pid=7213] starting temporary directories cleanup
+  - [pid=7213] finished temporary directories cleanup
+  - [pid=7213] <gracefully close end>
+"
+https://students.craftingcases.com/courses/take/structure-from-scratch/lessons/69867584-bs-drill-barriers-to-entry-in-high-end-universities,07_module-7-structured-throughout-the-case/18_bs-drill-barriers-to-entry-in-high-end-universities.mp4,failure,"attempt 2: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --proxy-server=http://127.0.0.1:33977 --proxy-bypass-list=<-loopback> --no-sandbox --test-type --window-position=0,0 --window-size=1920,1280 --disable-quic --autoplay-policy=no-user-gesture-required --hide-scrollbars --disable-infobars --noerrdialogs --user-data-dir=/tmp/playwright_chromiumdev_profile-oUhqOf --remote-debugging-pipe --no-startup-window
+  - <launched> pid=7285
+  - [pid=7285][err] [1002/123226.526391:WARNING:chrome/app/chrome_main_linux.cc:84] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=7285][err] [7285:7285:1002/123226.608201:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY
+  - [pid=7285][err] [7285:7285:1002/123226.608585:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=7285][err] [7285:7301:1002/123226.617004:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=7285][err] [7285:7301:1002/123226.617085:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are ""tcp"" and on UNIX ""unix"")
+  - [pid=7285] <gracefully close start>
+  - [pid=7285] <kill>
+  - [pid=7285] <will force kill>
+  - [pid=7285] <process did exit: exitCode=1, signal=null>
+  - [pid=7285] starting temporary directories cleanup
+  - [pid=7285] finished temporary directories cleanup
+  - [pid=7285] <gracefully close end>
+"
