@@ -1,0 +1,3 @@
+recordings/*.raw.mkv
+__pycache__/
+*.state.json
