@@ -13,6 +13,12 @@ Folder number = module, file number = lesson position inside the module. Lessons
 (no re-encode) only because GitHub rejects files over 100 MB; play the parts in order.
 `results.csv` lists every lesson: `url, filename(s), status, error`.
 
+## Contents
+
+All 87 video lessons of the course (37.3 hours): 7 modules, 94 MP4 files (7 long lessons are split into
+parts), about 3.8 GB, all 1920x1080 H.264 with audio. Not recorded because they have no video: one text
+lesson ("Work in Progress", module 7) and the feedback survey. `results.csv` shows every lesson as `success`.
+
 ## Re-running
 
 ```bash
