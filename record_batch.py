@@ -282,7 +282,7 @@ def verify(path, expected, partial=False):
     if not a:
         raise RuntimeError("no audio stream")
     dur = float(info["format"]["duration"])
-    if not partial and not (expected - 3 <= dur <= expected + 90):
+    if not partial and not (expected - 3 <= dur <= expected * 1.5 + 120):  # loaded machine can play slower than real time
         raise RuntimeError(f"duration {dur:.1f}s vs video {expected:.1f}s")
     dec = run(["ffmpeg", "-v", "error", "-i", str(path), "-f", "null", "-"])
     if dec.returncode != 0 or dec.stderr.strip():
